@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.pwk.entity.Admin" table="admin" catalog="bagshop">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="native" />
+        </id>
+        <property name="loginName" type="java.lang.String">
+            <column name="login_name" length="50" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="password" length="50" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="email" length="50" />
+        </property>
+        <property name="bandAccount" type="java.lang.String">
+            <column name="band_account_number" length="50" />
+        </property>
+        <property name="contactNumber" type="java.lang.String">
+            <column name="contact_number" length="50" />
+        </property>
+        <property name="fullName" type="java.lang.String">
+            <column name="full_name" length="50" />
+        </property>
+        <property name="contactPerson" type="java.lang.String">
+            <column name="contact_person" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.pwk.entity.Order" table="order" catalog="bagshop">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="native" />
+        </id>
+
+        <property name="creditCard" type="java.lang.String">
+            <column name="credit_card" length="50" />
+        </property>
+
+        <property name="fullName" type="java.lang.String">
+            <column name="full_name" length="50" />
+        </property>
+
+        <property name="address" type="java.lang.String">
+            <column name="address" length="500" />
+        </property>
+
+        <property name="email" type="java.lang.String">
+            <column name="email" length="50" />
+        </property>
+
+        <property name="phone" type="java.lang.String">
+            <column name="phone" length="50" />
+        </property>
+
+        <many-to-one name="user"  class="com.pwk.entity.User" column="user_id" fetch="select" lazy="false"/>
+
+        <set name="orderItems" table="order_item" inverse="false" cascade="all" lazy="false" order-by="id">
+            <key column="order_id"/>
+            <one-to-many class="com.pwk.entity.OrderItem"/>
+        </set>
+
+        <property name="totalPrice" type="java.lang.Float">
+            <column name="total_price" length="50" />
+        </property>
+
+        <property name="paymentDate" type="java.sql.Timestamp">
+            <column name="payment_date" length="50" />
+        </property>
+
+        <property name="payToAcc" type="java.lang.String">
+            <column name="pay_to_acc" length="50" />
+        </property>
+
+        <property name="status" type="java.lang.Integer">
+            <column name="status" length="50" />
+        </property>
+
+        <property name="createDate" type="java.sql.Timestamp">
+            <column name="create_date" length="50" />
+        </property>
+
+        <property name="shipPrice" type="java.lang.Float">
+            <column name="ship_price" length="50" />
+        </property>
+
+        <property name="fee" type="java.lang.Float">
+            <column name="fee" length="50" />
+        </property>
+
+        <property name="country" type="java.lang.String">
+            <column name="country" length="50" />
+        </property>
+        <property name="state" type="java.lang.String">
+            <column name="state" length="50" />
+        </property>
+        <property name="deliverCompany" type="java.lang.String">
+            <column name="delivery_company" />
+        </property>
+        <property name="trackingNo" type="java.lang.String">
+            <column name="tracking_no" />
+        </property>
+
+        <property name="commentStatus" type="java.lang.String">
+            <column name="comment_status" />
+        </property>
+    </class>
+</hibernate-mapping>

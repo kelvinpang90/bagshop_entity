@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.pwk.entity.User" table="user" catalog="bagshop">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="native" />
+        </id>
+        <property name="loginname" type="java.lang.String">
+            <column name="loginname" length="50" />
+        </property>
+        <property name="fb_id" type="java.lang.String">
+            <column name="fb_id" length="50" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="email" length="50" />
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="address" length="500" />
+        </property>
+        <property name="phone" type="java.lang.String">
+            <column name="phone" length="50" />
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="name" length="50" />
+        </property>
+        <property name="registerTime" type="java.sql.Timestamp">
+            <column name="register_time" length="50" />
+        </property>
+        <property name="country" type="java.lang.String">
+            <column name="country" length="50" />
+        </property>
+        <property name="state" type="java.lang.String">
+            <column name="state" length="50" />
+        </property>
+        <property name="emailStatus" type="java.lang.Integer">
+            <column name="email_status" />
+        </property>
+    </class>
+</hibernate-mapping>

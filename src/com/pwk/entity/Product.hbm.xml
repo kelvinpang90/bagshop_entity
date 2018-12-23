@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.pwk.entity.Product" table="product" catalog="bagshop">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="native"/>
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="name" length="45"/>
+        </property>
+
+        <property name="shortDescription" type="java.lang.String">
+            <column name="shortDescription" length="200"/>
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="description"/>
+        </property>
+        <property name="price" type="java.lang.Float">
+            <column name="price" length="45"/>
+        </property>
+        <property name="type" type="java.lang.String">
+            <column name="type" length="45"/>
+        </property>
+        <property name="status" type="java.lang.String">
+            <column name="status" length="10"/>
+        </property>
+
+        <many-to-one name="brand" class="com.pwk.entity.Brand" column="brand_id" fetch="select" lazy="false"/>
+
+        <many-to-one name="category" class="com.pwk.entity.Category" column="category_id" fetch="select" lazy="false"/>
+
+        <set name="colors" table="product_color_link" cascade="save-update" lazy="false" inverse="false" order-by="id asc" >
+            <key column="pid"/>
+            <many-to-many class="com.pwk.entity.Color" column="cid"/>
+        </set>
+
+        <property name="createDate" type="java.sql.Timestamp">
+            <column name="create_date" length="50"/>
+        </property>
+
+        <property name="updateDate" type="java.sql.Timestamp">
+            <column name="update_date" length="50"/>
+        </property>
+
+        <set name="picPath" table="image" cascade="save-update" lazy="false" inverse="false"  where="type='product'" order-by="id asc">
+            <key column="parent_id"/>
+            <one-to-many class="com.pwk.entity.Image" not-found="ignore"/>
+        </set>
+
+        <property name="stockStatus" type="java.lang.Integer">
+            <column name="stock_status"/>
+        </property>
+
+        <set name="attributes" table="attribute" cascade="save-update" lazy="false" inverse="false" order-by="id asc" >
+            <key column="p_id"/>
+            <one-to-many class="com.pwk.entity.Attribute" not-found="ignore"/>
+        </set>
+
+    </class>
+</hibernate-mapping>

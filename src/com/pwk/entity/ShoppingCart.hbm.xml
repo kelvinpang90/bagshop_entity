@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.pwk.entity.ShoppingCart" table="shopping_cart" catalog="bagshop">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="native"/>
+        </id>
+
+        <property name="count" type="java.lang.Integer">
+            <column name="count" length="10"/>
+        </property>
+
+        <many-to-one name="product" class="com.pwk.entity.Product" column="product_id" fetch="select" lazy="false"/>
+
+        <many-to-one name="color" class="com.pwk.entity.Color" column="color_id" fetch="select" lazy="false"/>
+
+        <many-to-one name="user" class="com.pwk.entity.User" column="user_id" fetch="select" lazy="false"/>
+
+        <property name="attributes" type="java.lang.String">
+            <column name="attributes"/>
+        </property>
+
+        <property name="additionalPrice" type="java.lang.Float">
+            <column name="additional_price"/>
+        </property>
+    </class>
+</hibernate-mapping>

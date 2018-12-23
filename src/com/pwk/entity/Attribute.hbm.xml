@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.pwk.entity.Attribute" table="attribute" catalog="bagshop">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="native" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="name" length="50" />
+        </property>
+        <property name="pId" type="java.lang.Integer">
+            <column name="p_id"/>
+        </property>
+        <set name="parameters" table="parameters" inverse="false" cascade="all" lazy="false" order-by="id">
+            <key column="attribute_id"/>
+            <one-to-many class="com.pwk.entity.Parameter"/>
+        </set>
+    </class>
+</hibernate-mapping>

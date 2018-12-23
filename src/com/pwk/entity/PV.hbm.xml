@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.pwk.entity.PV" table="pv" catalog="bagshop">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="native" />
+        </id>
+        <property name="createDate" type="java.sql.Timestamp">
+            <column name="create_date"/>
+        </property>
+
+        <property name="pcCount" type="java.lang.Integer">
+           <column name="pc_count"/>
+        </property>
+
+        <property name="mobileCount" type="java.lang.Integer">
+            <column name="mobile_count"/>
+        </property>
+    </class>
+</hibernate-mapping>
